@@ -103,7 +103,7 @@
         ],
         MenuLink : [],
         FooterStyle: 2,
-        BottomText: '<div><span class="face">ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class="iconfont icon-like-fill"></i></span>何事秋风悲画扇】</div><div>Live For Code</div>',
+        BottomText: '<div><span class="face">ღゝ◡╹)ノ♡</span></div><div>【形而上者之谓道，形而下者之谓器】</div><div>Live For Code</div>',
         ConsoleList: [],
         FontIconExtend: '',
         Donate: {
@@ -158,43 +158,6 @@
             baseUrl: '/js/',
             waitSeconds: 100
         },
-        Music: {
-            type: 'Meting'
-        },
-        APlayer: {
-            container: '.aplayer',
-            fixed: true,
-            autoplay: false, 
-            loop: 'all',
-            order: 'random', 
-            preload: 'auto',
-            volume: 0.67,
-            mutex: true,
-            lrcType: 3,
-            audio: [
-                {
-                    name: 'Endless Tears',
-                    artist: 'CLIFF EDGE',
-                    cover: '/music/cover/Endless Tears.jpg',
-                    url: '/music/song/Endless Tears.mp3',
-                    lrc: '/music/lrc/Endless Tears.lrc'
-                }
-            ]
-        },
-        Meting: {
-            api: 'https://api.i-meto.com/meting/api',
-            id: '3778678', 
-            lrcshow: false, 
-            server: 'netease', 
-            type: 'playlist', 
-            fixed: true, 
-            autoplay: false, 
-            loop: 'all', 
-            order: 'random', 
-            preload: 'auto', 
-            volume: 0.67, 
-            mutex: true
-        },
         Mouse: {
             enable: false,
             options: {
@@ -206,7 +169,6 @@
             default: '/image/website/lazyload.svg'
         },
         Style: {
-            aplayer: '/css/APlayer.css',
             archive: '/css/archive.css',
             base: '/css/base.css',
             clipboard: '/css/clipboard.css',
@@ -227,14 +189,12 @@
             walineCustom: '/css/waline-custom.css'
         },
         Script: {
-            aplayer: '/js/APlayer.min.js',
             config: '/js/require.config.js',
             index: '/js/index.js',
             instantSearch: '/js/instantsearch.min.js',
             iscroll: '/js/iscroll.js',
             jQuery: '/js/jquery-3.4.1.min.js',
             loading: '/js/loading.js',
-            meting: '/js/Meting.min.js',
             require: '/js/require.min.js',
             waline: '/js/waline.mjs',
             pageview: '/js/pageview.mjs',
