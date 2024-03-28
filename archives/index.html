@@ -685,5 +685,19 @@
     };
 </script>
     <script type="text/javascript" src="/js/index.js"></script>
-</body>
+<!-- hexo injector body_end start -->
+    <div class="myspine-spine-widget"></div>
+    <script src="/js/third-party/myspine/spine-widget.js"></script>
+    <script src="/js/third-party/myspine/spine-skeleton-binary.js"></script>
+    <script src="/js/third-party/myspine/myspine.js"></script>
+    <link type="text/css" href="/css/_third-party/myspine.css"></link>
+    <script>
+        new MySpine({
+            spineDir: "/spine_models/",
+            models: [{"name":"miku_night/","skin":"default","atlas":"sekai.atlas","skeleton":"sekai.skel"}],
+            styles: {"widget":{"width":"200px","height":"200px"},"voiceText":{"color":"#e6e6e6"}},
+            behaviors: {"start":{"animation":"n_general_walk_01_f","voice":"","text":"Ohhhhh好耶"},"idle":{"maxMinutes":1,"animations":[{"name":"w_pure_joy02_f","loop":false},{"name":"w_pure_joy02_f","loop":false}],"voices":[{"voice":"","text":"不买立省百分百"}]},"interact":{"maxPlaySec":3,"animations":[{"name":"w_pure_joy02_f","loop":false},{"name":"w_cute_doubt01_f","loop":false},{"name":"w_cute_listen01_f","loop":false}],"voices":[{"voice":"","text":"既见未来，为何不buy"}]}}
+        });
+    </script>
+    <!-- hexo injector body_end end --></body>
 </html>
