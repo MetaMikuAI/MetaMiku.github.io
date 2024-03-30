@@ -186,7 +186,8 @@
             tocbot: '/css/tocbot.css',
             valine: '/css/valine.css',
             waline: '/css/waline.css',
-            walineCustom: '/css/waline-custom.css'
+            walineCustom: '/css/waline-custom.css',
+            myspine: '/css/myspine.css'
         },
         Script: {
             config: '/js/require.config.js',
