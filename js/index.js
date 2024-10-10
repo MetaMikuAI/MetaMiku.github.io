@@ -158,43 +158,6 @@
             baseUrl: '/js/',
             waitSeconds: 100
         },
-        Music: {
-            type: 'Meting'
-        },
-        APlayer: {
-            container: '.aplayer',
-            fixed: true,
-            autoplay: false, 
-            loop: 'all',
-            order: 'random', 
-            preload: 'auto',
-            volume: 0.67,
-            mutex: true,
-            lrcType: 3,
-            audio: [
-                {
-                    name: 'Endless Tears',
-                    artist: 'CLIFF EDGE',
-                    cover: '/music/cover/Endless Tears.jpg',
-                    url: '/music/song/Endless Tears.mp3',
-                    lrc: '/music/lrc/Endless Tears.lrc'
-                }
-            ]
-        },
-        Meting: {
-            api: 'https://api.i-meto.com/meting/api',
-            id: '3778678', 
-            lrcshow: false, 
-            server: 'netease', 
-            type: 'playlist', 
-            fixed: true, 
-            autoplay: false, 
-            loop: 'all', 
-            order: 'random', 
-            preload: 'auto', 
-            volume: 0.67, 
-            mutex: true
-        },
         Mouse: {
             enable: false,
             options: {

@@ -239,7 +239,7 @@ class="math inline">\((p-1)\)</span> 光滑，可用pohlig-hellman算法</p>
                     
                         <li class=""><a href="/archives" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
                     
-                        <li class=""><a href="/about" class="" target="_self"><span class="iconfont icon-about-fill"></span>关于</a></li>
+                        <li class=""><a href="/comment" class="" target="_self"><span class="iconfont icon-comments-fill"></span>留言板</a></li>
                     
                         <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
                     
@@ -289,15 +289,6 @@ class="math inline">\((p-1)\)</span> 光滑，可用pohlig-hellman算法</p>
 </div>
     <div id="tools">
     <div class="progressbar-top"></div>
-    
-    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
-    <script type="text/javascript" src="/js/APlayer.min.js"></script>
-    <script type="text/javascript" src="/js/Meting.min.js"></script>
-    <script>
-        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
-    </script>
-    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
-
     <div class="wrap-right">
     <div class="wrap-right-hide">
          <div class="wrap-right-button favorites">
@@ -508,10 +499,10 @@ class="math inline">\((p-1)\)</span> 光滑，可用pohlig-hellman算法</p>
                 },
             
                 {
-                    name   : "关于",
-                    icon   : "icon-about-fill",
-                    href   : "/about",
-                    type   : "about",
+                    name   : "留言板",
+                    icon   : "icon-comments-fill",
+                    href   : "/comment",
+                    type   : "comment",
                     class  : "",
                     target : "_self"
                 },
@@ -590,8 +581,8 @@ class="math inline">\((p-1)\)</span> 光滑，可用pohlig-hellman算法</p>
         },
 
         Search : {
-            applicationID : "010C3EANT8",
-            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            applicationID : "EIKN74YZ8H",
+            apiKey        : "5cf005ac771b67c63c68650c57e85ec7",
             indexName     : "Notes",
             hits          : {
                 page : 10
@@ -631,10 +622,10 @@ class="math inline">\((p-1)\)</span> 光滑，可用pohlig-hellman算法</p>
 
         Valine : {
             el             : ".comments-content",
-            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
-            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            appId          : "CXK3bqXw8K4aJOe5rBd2xnNY-gzGzoHsz",
+            appKey         : "Q0LNpbLGoKsaOr8bPFbE1uCI",
             serverURLs     : "",
-            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            placeholder    : "25時、ナイトコードで。",
             avatar         : "mm",
             meta           : "nick,mail,link",
             requiredFields : "nick,mail",
@@ -662,46 +653,6 @@ class="math inline">\((p-1)\)</span> 光滑，可用pohlig-hellman算法</p>
             waitSeconds : 100
         },
 
-        Music : {
-            type : "Meting"
-        },
-        APlayer : {
-            container : ".aplayer",
-            fixed     : true,
-            autoplay  : false,
-            loop      : "all",
-            order     : "random",
-            preload   : "auto",
-            volume    : 0.67,
-            mutex     : true,
-            lrcType   : 3,
-            audio     : [
-                
-                    {
-                        name   : "Endless Tears",
-                        artist : "CLIFF EDGE",
-                        cover  : "/music/cover/Endless Tears.jpg",
-                        url    : "/music/song/Endless Tears.mp3",
-                        lrc    : "/music/lrc/Endless Tears.lrc"
-                    },
-                
-            ]
-        },
-        Meting : {
-            api      : "https://api.i-meto.com/meting/api",
-            id       : "3778678", 
-            lrcshow  : false, 
-            server   : "netease", 
-            type     : "playlist", 
-            fixed    : true, 
-            autoplay : false, 
-            loop     : "all", 
-            order    : "random", 
-            preload  : "auto", 
-            volume   : 0.67, 
-            mutex    : true
-        },
-
         Mouse : {
             enable  : true,
             options : {
@@ -715,7 +666,7 @@ class="math inline">\((p-1)\)</span> 光滑，可用pohlig-hellman算法</p>
         },
   
         Style : {
-            aplayer          : "/css/APlayer.css",
+            aplayer          : "",
             archive          : "/css/archive.css",
             base             : "/css/base.css",
             clipboard        : "/css/clipboard.css",
@@ -737,7 +688,7 @@ class="math inline">\((p-1)\)</span> 光滑，可用pohlig-hellman算法</p>
         },
 
         Script: {
-            aplayer          : "/js/APlayer.min.js",
+            aplayer          : "",
             config           : "/js/require.config.js",
             index            : "/js/index.js",
             instantSearch    : "/js/instantsearch.min.js",
