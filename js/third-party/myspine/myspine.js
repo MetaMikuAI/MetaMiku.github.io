@@ -42,6 +42,8 @@ MySpine.prototype = {
             }
             e(this.widgetContainer, i.styles.widget),
             e(this.voiceText, i.styles.voiceText);
+            this.widgetContainer.style.position = 'absolute';
+            this.widgetContainer.style.zIndex = '999999';    
             t = new spine.SkeletonJsonConverter(t,1);
             t.convertToJson(),
             new spine.SpineWidget(this.widgetContainer,{
